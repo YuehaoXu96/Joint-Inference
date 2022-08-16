@@ -183,18 +183,18 @@ class Mimicree(ProbabilisticModel, Continuous):
                 derived = der_list[c]
                 c += 1
                 for ind in range(rep):
-                    base = list(map(int,a[3+len_outputmode*ind].split(':')))
+                    base = list(map(int,a[3+(len_outputmode+1)*ind].split(':')))
                     
                     tmp = []
                     for indegen in range(len_outputmode):
                         if(derived == 'A'):
-                            tmp.append((np.array(list(map(int,a[3+len_outputmode*ind+indegen].split(':'))))/sum(base))[0])
+                            tmp.append((np.array(list(map(int,a[3+(len_outputmode+1)*ind+indegen].split(':'))))/sum(base))[0])
                         elif(derived == 'T'):
-                            tmp.append((np.array(list(map(int,a[3+len_outputmode*ind+indegen].split(':'))))/sum(base))[1])
+                            tmp.append((np.array(list(map(int,a[3+(len_outputmode+1)*ind+indegen].split(':'))))/sum(base))[1])
                         elif(derived == 'C'):
-                            tmp.append((np.array(list(map(int,a[3+len_outputmode*ind+indegen].split(':'))))/sum(base))[2])
+                            tmp.append((np.array(list(map(int,a[3+(len_outputmode+1)*ind+indegen].split(':'))))/sum(base))[2])
                         else:
-                            tmp.append((np.array(list(map(int,a[3+len_outputmode*ind+indegen].split(':'))))/sum(base))[3])
+                            tmp.append((np.array(list(map(int,a[3+(len_outputmode+1)*ind+indegen].split(':'))))/sum(base))[3])
                     result[ind] += tmp
 
         # Delete the random folder
